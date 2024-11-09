@@ -7,9 +7,9 @@ import xyz.ankairmc.ankair.network.PacketBuffer;
 
 public class C19PluginMessagePacket implements Packet<IPlayListener> {
     private final Identifier channel;
-    private final String data;
+    private final PacketBuffer data;
 
-    public C19PluginMessagePacket(Identifier channel, String data) {
+    public C19PluginMessagePacket(Identifier channel, PacketBuffer data) {
         this.channel = channel;
         this.data = data;
     }
@@ -17,6 +17,6 @@ public class C19PluginMessagePacket implements Packet<IPlayListener> {
     @Override
     public void write(PacketBuffer data) {
         data.writeIdentifier(channel);
-        data.writeUtfString(this.data);
+        data.writeBytes(this.data);
     }
 }

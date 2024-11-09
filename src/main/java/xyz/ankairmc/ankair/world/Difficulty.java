@@ -1,4 +1,4 @@
-package xyz.ankairmc.ankair.player;
+package xyz.ankairmc.ankair.world;
 
 public enum Difficulty {
     PEACEFUL(0),

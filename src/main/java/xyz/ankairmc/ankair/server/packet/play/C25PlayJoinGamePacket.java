@@ -1,7 +1,7 @@
 package xyz.ankairmc.ankair.server.packet.play;
 
 import xyz.ankairmc.ankair.network.packet.Packet;
-import xyz.ankairmc.ankair.player.Difficulty;
+import xyz.ankairmc.ankair.world.Difficulty;
 import xyz.ankairmc.ankair.player.GameMode;
 import xyz.ankairmc.ankair.network.listener.IPlayListener;
 import xyz.ankairmc.ankair.network.PacketBuffer;

@@ -1,9 +1,11 @@
 package xyz.ankairmc.ankair.network.listener.impl;
 
+import io.netty.buffer.Unpooled;
 import xyz.ankairmc.ankair.MinecraftServer;
 import xyz.ankairmc.ankair.core.Identifier;
+import xyz.ankairmc.ankair.network.PacketBuffer;
 import xyz.ankairmc.ankair.network.listener.ILoginListener;
-import xyz.ankairmc.ankair.player.Difficulty;
+import xyz.ankairmc.ankair.world.Difficulty;
 import xyz.ankairmc.ankair.player.GameMode;
 import xyz.ankairmc.ankair.player.Player;
 import xyz.ankairmc.ankair.network.ConnectionStatus;
@@ -65,7 +67,12 @@ public class LoginListener implements ILoginListener {
         ));
         session.sendPacket(new C49PlaySpawnPositionPacket(0, 0, 0));
         session.sendPacket(new C32PlayPositionAndLookPacket(0, 0, 0, 0, 120, 0));
-        session.sendPacket(new C19PluginMessagePacket(new Identifier("brand"), ((MinecraftCustom) status).getServerModName()));
+        session.sendPacket(new C19PluginMessagePacket(
+                new Identifier("brand"),
+                new PacketBuffer(
+                        Unpooled.buffer()
+                ).writeUtfString(((MinecraftCustom) status).getServerModName())
+        ));
 
         session.sendPacket(new C4EPlayTabListHeaderAndFooterPacket(
                 IChatComponent.build().text("Ankair 1.12.2"),
