@@ -3,7 +3,6 @@ package xyz.ankairmc.ankair.network;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.channel.SimpleChannelInboundHandler;
 import xyz.ankairmc.ankair.MinecraftServer;
 import xyz.ankairmc.ankair.server.MinecraftStatus;

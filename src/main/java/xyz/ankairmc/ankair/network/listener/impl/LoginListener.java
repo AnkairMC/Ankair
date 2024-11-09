@@ -1,6 +1,7 @@
 package xyz.ankairmc.ankair.network.listener.impl;
 
 import xyz.ankairmc.ankair.MinecraftServer;
+import xyz.ankairmc.ankair.core.Identifier;
 import xyz.ankairmc.ankair.network.listener.ILoginListener;
 import xyz.ankairmc.ankair.player.Difficulty;
 import xyz.ankairmc.ankair.player.GameMode;
@@ -52,7 +53,7 @@ public class LoginListener implements ILoginListener {
                 session.getGameProfile().getUuid(), session.getGameProfile().getUsername()
         ));
         session.setStatus(ConnectionStatus.PLAY);
-        session.sendPacket(new C23PlayJoinGamePacket(
+        session.sendPacket(new C25PlayJoinGamePacket(
                 session.getEntityId(),
                 GameMode.CREATIVE,
                 false,
@@ -62,11 +63,11 @@ public class LoginListener implements ILoginListener {
                 "default",
                 false
         ));
-        session.sendPacket(new C46PlaySpawnPositionPacket(0, 0, 0));
-        session.sendPacket(new C2FPlayPositionAndLookPacket(0, 0, 0, 0, 120, 0));
-        session.sendPacket(new C18PluginMessagePacket("MC|Brand", ((MinecraftCustom) status).getServerModName()));
+        session.sendPacket(new C49PlaySpawnPositionPacket(0, 0, 0));
+        session.sendPacket(new C32PlayPositionAndLookPacket(0, 0, 0, 0, 120, 0));
+        session.sendPacket(new C19PluginMessagePacket(new Identifier("brand"), ((MinecraftCustom) status).getServerModName()));
 
-        session.sendPacket(new C4APlayTabListHeaderAndFooterPacket(
+        session.sendPacket(new C4EPlayTabListHeaderAndFooterPacket(
                 IChatComponent.build().text("Ankair 1.12.2"),
                 IChatComponent.build().text("Welcome ")
                         .extra(IChatComponent.build().text(session.getGameProfile().getUsername()).color("red"))
@@ -74,7 +75,7 @@ public class LoginListener implements ILoginListener {
         ));
         session.getChannel().eventLoop().scheduleAtFixedRate(
                 () -> session.sendPacket(
-                        new C1FPlayKeepAlivePacket((int) (System.currentTimeMillis() / 10000))
+                        new C21PlayKeepAlivePacket((int) (System.currentTimeMillis() / 10000))
                 ),
                 5, 10, TimeUnit.SECONDS);
         MinecraftServer.addPlayer(session);

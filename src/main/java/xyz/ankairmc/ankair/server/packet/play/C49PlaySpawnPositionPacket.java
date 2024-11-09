@@ -5,12 +5,12 @@ import xyz.ankairmc.ankair.network.packet.Packet;
 import xyz.ankairmc.ankair.network.listener.IPlayListener;
 import xyz.ankairmc.ankair.network.PacketBuffer;
 
-public class C46PlaySpawnPositionPacket implements Packet<IPlayListener> {
+public class C49PlaySpawnPositionPacket implements Packet<IPlayListener> {
     private final int x;
     private final int y;
     private final int z;
 
-    public C46PlaySpawnPositionPacket(int x, int y, int z) {
+    public C49PlaySpawnPositionPacket(int x, int y, int z) {
         this.x = x;
         this.y = y;
         this.z = z;

@@ -21,12 +21,12 @@ public class IntegratedServer extends MinecraftServer {
 
     @Override
     public int getProtocol() {
-        return 340;
+        return 404;
     }
 
     @Override
     public String getVersionName() {
-        return "Ankair 1.12.2";
+        return "Ankair 1.13.2";
     }
 
     @Override

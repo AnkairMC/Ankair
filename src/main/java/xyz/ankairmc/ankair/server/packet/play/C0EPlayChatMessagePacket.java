@@ -6,11 +6,11 @@ import xyz.ankairmc.ankair.network.PacketBuffer;
 import xyz.ankairmc.ankair.server.packet.play.chat.IChatComponent;
 import xyz.ankairmc.ankair.server.packet.play.chat.ChatType;
 
-public class C0FPlayChatMessagePacket implements Packet<IPlayListener> {
+public class C0EPlayChatMessagePacket implements Packet<IPlayListener> {
     private final ChatType type;
     private final IChatComponent component;
 
-    public C0FPlayChatMessagePacket(ChatType type, IChatComponent component) {
+    public C0EPlayChatMessagePacket(ChatType type, IChatComponent component) {
         this.type = type;
         this.component = component;
     }

@@ -3,6 +3,7 @@ package xyz.ankairmc.ankair.network;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufAllocator;
 import io.netty.util.ByteProcessor;
+import xyz.ankairmc.ankair.core.Identifier;
 import xyz.ankairmc.ankair.core.Position;
 
 import java.io.IOException;
@@ -1044,5 +1045,18 @@ public class PacketBuffer extends ByteBuf {
         }
 
         return collection;
+    }
+
+    public Identifier readIdentifier() {
+        String text = this.readUtfString();
+        String[] split = text.split(":");
+
+        return new Identifier(split[0], split[1]);
+    }
+
+    public PacketBuffer writeIdentifier(Identifier identifier) {
+        this.writeUtfString(identifier.toString());
+
+        return this;
     }
 }

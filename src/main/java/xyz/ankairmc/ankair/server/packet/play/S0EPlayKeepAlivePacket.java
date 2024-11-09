@@ -4,7 +4,7 @@ import xyz.ankairmc.ankair.network.packet.Packet;
 import xyz.ankairmc.ankair.network.listener.IPlayListener;
 import xyz.ankairmc.ankair.network.PacketBuffer;
 
-public class S0BPlayKeepAlive implements Packet<IPlayListener> {
+public class S0EPlayKeepAlivePacket implements Packet<IPlayListener> {
     public long payload;
 
     @Override

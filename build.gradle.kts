@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "me.ankairmc.ankair"
-version = "1.21-R0.1-SNAPSHOT"
+version = "1.13.2-R0.1-SNAPSHOT"
 
 repositories {
     maven("https://maven.aliyun.com/nexus/content/groups/public/")

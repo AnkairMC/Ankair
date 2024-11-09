@@ -6,7 +6,7 @@ import xyz.ankairmc.ankair.player.GameMode;
 import xyz.ankairmc.ankair.network.listener.IPlayListener;
 import xyz.ankairmc.ankair.network.PacketBuffer;
 
-public class C23PlayJoinGamePacket implements Packet<IPlayListener> {
+public class C25PlayJoinGamePacket implements Packet<IPlayListener> {
     private final int entityId;
     private final GameMode gameMode;
     private final boolean hardcore;
@@ -16,7 +16,7 @@ public class C23PlayJoinGamePacket implements Packet<IPlayListener> {
     private final String worldType;
     private final boolean debug;
 
-    public C23PlayJoinGamePacket(int entityId, GameMode gameMode, boolean hardcore, int dimension, Difficulty difficulty, int max, String worldType, boolean debug) {
+    public C25PlayJoinGamePacket(int entityId, GameMode gameMode, boolean hardcore, int dimension, Difficulty difficulty, int max, String worldType, boolean debug) {
         this.entityId = entityId;
         this.gameMode = gameMode;
         this.hardcore = hardcore;

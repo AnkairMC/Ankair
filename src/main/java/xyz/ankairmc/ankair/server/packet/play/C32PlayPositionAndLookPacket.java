@@ -4,7 +4,7 @@ import xyz.ankairmc.ankair.network.packet.Packet;
 import xyz.ankairmc.ankair.network.listener.IPlayListener;
 import xyz.ankairmc.ankair.network.PacketBuffer;
 
-public class C2FPlayPositionAndLookPacket implements Packet<IPlayListener> {
+public class C32PlayPositionAndLookPacket implements Packet<IPlayListener> {
     private final double x;
     private final double y;
     private final double z;
@@ -12,7 +12,7 @@ public class C2FPlayPositionAndLookPacket implements Packet<IPlayListener> {
     private final float pitch;
     private final int tpId;
 
-    public C2FPlayPositionAndLookPacket(double x, double y, double z, float yaw, float pitch, int tpId) {
+    public C32PlayPositionAndLookPacket(double x, double y, double z, float yaw, float pitch, int tpId) {
         this.x = x;
         this.y = y;
         this.z = z;

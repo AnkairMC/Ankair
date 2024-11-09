@@ -5,10 +5,10 @@ import xyz.ankairmc.ankair.network.listener.IPlayListener;
 import xyz.ankairmc.ankair.network.PacketBuffer;
 import xyz.ankairmc.ankair.server.data.ServerDisconnectData;
 
-public class C1APlayDisconnectPacket implements Packet<IPlayListener> {
+public class C1BPlayDisconnectPacket implements Packet<IPlayListener> {
     private final String reason;
 
-    public C1APlayDisconnectPacket(String reason) {
+    public C1BPlayDisconnectPacket(String reason) {
         this.reason = reason;
     }
 

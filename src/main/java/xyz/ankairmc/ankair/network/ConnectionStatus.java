@@ -45,22 +45,22 @@ public enum ConnectionStatus {
     },
     PLAY(PlayListener.class) {
         {
-            createPacket(0x23, PacketDirection.CLIENT_BOUND, C23PlayJoinGamePacket.class);
-            createPacket(0x46, PacketDirection.CLIENT_BOUND, C46PlaySpawnPositionPacket.class);
-            createPacket(0x2F, PacketDirection.CLIENT_BOUND, C2FPlayPositionAndLookPacket.class);
+            createPacket(0x25, PacketDirection.CLIENT_BOUND, C25PlayJoinGamePacket.class);
+            createPacket(0x49, PacketDirection.CLIENT_BOUND, C49PlaySpawnPositionPacket.class);
+            createPacket(0x32, PacketDirection.CLIENT_BOUND, C32PlayPositionAndLookPacket.class);
 
-            createPacket(0x1A, PacketDirection.CLIENT_BOUND, C1APlayDisconnectPacket.class);
+            createPacket(0x1B, PacketDirection.CLIENT_BOUND, C1BPlayDisconnectPacket.class);
 
-            createPacket(0x1F, PacketDirection.CLIENT_BOUND, C1FPlayKeepAlivePacket.class);
-            createPacket(0x0B, PacketDirection.SERVER_BOUND, S0BPlayKeepAlive.class);
+            createPacket(0x21, PacketDirection.CLIENT_BOUND, C21PlayKeepAlivePacket.class);
+            createPacket(0x0E, PacketDirection.SERVER_BOUND, S0EPlayKeepAlivePacket.class);
 
             createPacket(0x02, PacketDirection.SERVER_BOUND, S02PlayChatMessagePacket.class);
-            createPacket(0x0F, PacketDirection.CLIENT_BOUND, C0FPlayChatMessagePacket.class);
+            createPacket(0x0E, PacketDirection.CLIENT_BOUND, C0EPlayChatMessagePacket.class);
 
-            createPacket(0x4A, PacketDirection.CLIENT_BOUND, C4APlayTabListHeaderAndFooterPacket.class);
-            createPacket(0x18, PacketDirection.CLIENT_BOUND, C18PluginMessagePacket.class);
+            createPacket(0x4E, PacketDirection.CLIENT_BOUND, C4EPlayTabListHeaderAndFooterPacket.class);
+            createPacket(0x19, PacketDirection.CLIENT_BOUND, C19PluginMessagePacket.class);
 
-            createPacket(0x0E, PacketDirection.SERVER_BOUND, S0EPositionAndLookPacket.class);
+            createPacket(0x11, PacketDirection.SERVER_BOUND, S11PositionAndLookPacket.class);
         }
     };
 

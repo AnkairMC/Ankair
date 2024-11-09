@@ -8,8 +8,8 @@ import xyz.ankairmc.ankair.network.packet.Packet;
 import xyz.ankairmc.ankair.network.packet.PacketListener;
 import xyz.ankairmc.ankair.network.ConnectionStatus;
 import xyz.ankairmc.ankair.server.packet.login.C00LoginDisconnectPacket;
-import xyz.ankairmc.ankair.server.packet.play.C0FPlayChatMessagePacket;
-import xyz.ankairmc.ankair.server.packet.play.C1APlayDisconnectPacket;
+import xyz.ankairmc.ankair.server.packet.play.C0EPlayChatMessagePacket;
+import xyz.ankairmc.ankair.server.packet.play.C1BPlayDisconnectPacket;
 import xyz.ankairmc.ankair.server.packet.play.chat.ChatType;
 import xyz.ankairmc.ankair.server.packet.play.chat.IChatComponent;
 
@@ -67,7 +67,7 @@ public class Player extends Entity {
     }
 
     public void sendChatMessage(IChatComponent component) {
-        this.sendPacket(new C0FPlayChatMessagePacket(
+        this.sendPacket(new C0EPlayChatMessagePacket(
                 ChatType.CHAT,
                 component
         ));
@@ -81,7 +81,7 @@ public class Player extends Entity {
         if (status == ConnectionStatus.LOGIN) {
             this.sendPacket(new C00LoginDisconnectPacket(reason));
         } else if (status == ConnectionStatus.PLAY) {
-            this.sendPacket(new C1APlayDisconnectPacket(reason));
+            this.sendPacket(new C1BPlayDisconnectPacket(reason));
         }
 
         this.channel.disconnect();
