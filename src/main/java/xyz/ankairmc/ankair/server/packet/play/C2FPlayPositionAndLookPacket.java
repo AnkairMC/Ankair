@@ -1,9 +1,8 @@
 package xyz.ankairmc.ankair.server.packet.play;
 
-import io.netty.buffer.ByteBuf;
 import xyz.ankairmc.ankair.packet.Packet;
 import xyz.ankairmc.ankair.protocol.IPlayListener;
-import xyz.ankairmc.ankair.protocol.types.VarInt;
+import xyz.ankairmc.ankair.protocol.PacketBuffer;
 
 public class C2FPlayPositionAndLookPacket implements Packet<IPlayListener> {
     private final double x;
@@ -23,7 +22,7 @@ public class C2FPlayPositionAndLookPacket implements Packet<IPlayListener> {
     }
 
     @Override
-    public void write(ByteBuf data) {
+    public void write(PacketBuffer data) {
         data.writeDouble(x);
         data.writeDouble(y);
         data.writeDouble(z);
@@ -31,6 +30,6 @@ public class C2FPlayPositionAndLookPacket implements Packet<IPlayListener> {
         data.writeFloat(pitch);
 
         data.writeByte(0);
-        VarInt.write(data, tpId);
+        data.writeVarInt(tpId);
     }
 }

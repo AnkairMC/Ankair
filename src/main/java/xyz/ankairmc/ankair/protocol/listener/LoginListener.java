@@ -7,7 +7,6 @@ import xyz.ankairmc.ankair.player.GameMode;
 import xyz.ankairmc.ankair.player.Player;
 import xyz.ankairmc.ankair.protocol.ConnectionStatus;
 import xyz.ankairmc.ankair.protocol.ILoginListener;
-import xyz.ankairmc.ankair.protocol.types.UtfString;
 import xyz.ankairmc.ankair.server.MinecraftCustom;
 import xyz.ankairmc.ankair.server.MinecraftStatus;
 import xyz.ankairmc.ankair.server.packet.login.C02LoginSuccessPacket;

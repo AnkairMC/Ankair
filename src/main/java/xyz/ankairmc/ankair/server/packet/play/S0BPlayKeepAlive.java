@@ -1,14 +1,14 @@
 package xyz.ankairmc.ankair.server.packet.play;
 
-import io.netty.buffer.ByteBuf;
 import xyz.ankairmc.ankair.packet.Packet;
 import xyz.ankairmc.ankair.protocol.IPlayListener;
+import xyz.ankairmc.ankair.protocol.PacketBuffer;
 
 public class S0BPlayKeepAlive implements Packet<IPlayListener> {
     public long payload;
 
     @Override
-    public void read(ByteBuf data) {
+    public void read(PacketBuffer data) {
         this.payload = data.readLong();
     }
 

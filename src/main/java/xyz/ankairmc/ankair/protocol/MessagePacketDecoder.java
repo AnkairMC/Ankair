@@ -8,7 +8,6 @@ import xyz.ankairmc.ankair.packet.Packet;
 import xyz.ankairmc.ankair.packet.PacketDirection;
 import xyz.ankairmc.ankair.packet.PacketListener;
 import xyz.ankairmc.ankair.player.Player;
-import xyz.ankairmc.ankair.protocol.types.VarInt;
 
 import java.util.List;
 
@@ -23,7 +22,8 @@ public class MessagePacketDecoder extends MessageToMessageDecoder<ByteBuf> {
 
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf input, List<Object> output) {
-        int id = VarInt.read(input);
+        PacketBuffer buffer = new PacketBuffer(input);
+        int id = buffer.readVarInt();
         ConnectionStatus status = session.getStatus();
 
         Class<? extends Packet<? extends PacketListener>> packetClazz = ConnectionStatus.getPacketById(status, PacketDirection.SERVER_BOUND, id);
@@ -31,7 +31,7 @@ public class MessagePacketDecoder extends MessageToMessageDecoder<ByteBuf> {
             try {
                 Packet<? extends PacketListener> packet = packetClazz.getConstructor().newInstance();
 
-                packet.read(input);
+                packet.read(buffer);
                 output.add(packet);
             } catch (Throwable throwable) {
                 throw new RuntimeException(throwable);

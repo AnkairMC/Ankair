@@ -5,7 +5,7 @@ import xyz.ankairmc.ankair.packet.Packet;
 import xyz.ankairmc.ankair.player.Difficulty;
 import xyz.ankairmc.ankair.player.GameMode;
 import xyz.ankairmc.ankair.protocol.IPlayListener;
-import xyz.ankairmc.ankair.protocol.types.UtfString;
+import xyz.ankairmc.ankair.protocol.PacketBuffer;
 
 public class C23PlayJoinGamePacket implements Packet<IPlayListener> {
     private final int entityId;
@@ -29,7 +29,7 @@ public class C23PlayJoinGamePacket implements Packet<IPlayListener> {
     }
 
     @Override
-    public void write(ByteBuf data) {
+    public void write(PacketBuffer data) {
         data.writeInt(entityId);
         int i = gameMode.id;
 
@@ -40,7 +40,7 @@ public class C23PlayJoinGamePacket implements Packet<IPlayListener> {
         data.writeInt(dimension);
         data.writeByte(difficulty.id);
         data.writeByte(max);
-        UtfString.write(data, worldType);
+        data.writeUtfString(worldType);
         data.writeBoolean(debug);
     }
 }

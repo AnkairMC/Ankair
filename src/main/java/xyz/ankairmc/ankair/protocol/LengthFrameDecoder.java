@@ -5,7 +5,6 @@ import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
 import io.netty.handler.codec.CorruptedFrameException;
-import xyz.ankairmc.ankair.protocol.types.VarInt;
 
 import java.util.List;
 
@@ -24,9 +23,7 @@ public class LengthFrameDecoder extends ByteToMessageDecoder {
 
             buf[i] = input.readByte();
             if (buf[i] >= 0) {
-                int length = VarInt.read(
-                        Unpooled.wrappedBuffer(buf)
-                );
+                int length = new PacketBuffer(Unpooled.wrappedBuffer(buf)).readVarInt();
 
                 if (input.readableBytes() < length) {
                     input.resetReaderIndex();

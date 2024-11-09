@@ -8,7 +8,6 @@ import xyz.ankairmc.ankair.packet.Packet;
 import xyz.ankairmc.ankair.packet.PacketDirection;
 import xyz.ankairmc.ankair.packet.PacketListener;
 import xyz.ankairmc.ankair.player.Player;
-import xyz.ankairmc.ankair.protocol.types.VarInt;
 
 public class MessagePacketEncoder extends MessageToByteEncoder<Packet<? extends PacketListener>> {
     @Override
@@ -17,7 +16,8 @@ public class MessagePacketEncoder extends MessageToByteEncoder<Packet<? extends 
         Player session = ctx.channel().attr(NetworkManager.session).get();
         int id = ConnectionStatus.getIdByPacket(session.getStatus(), PacketDirection.CLIENT_BOUND, (Class<? extends Packet<? extends PacketListener>>) packet.getClass());
 
-        VarInt.write(output, id);
-        packet.write(output);
+        PacketBuffer packetBuffer = new PacketBuffer(output);
+        packetBuffer.writeVarInt(id);
+        packet.write(packetBuffer);
     }
 }

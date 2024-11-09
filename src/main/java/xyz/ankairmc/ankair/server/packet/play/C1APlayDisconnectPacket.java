@@ -1,9 +1,8 @@
 package xyz.ankairmc.ankair.server.packet.play;
 
-import io.netty.buffer.ByteBuf;
 import xyz.ankairmc.ankair.packet.Packet;
 import xyz.ankairmc.ankair.protocol.IPlayListener;
-import xyz.ankairmc.ankair.protocol.types.UtfString;
+import xyz.ankairmc.ankair.protocol.PacketBuffer;
 import xyz.ankairmc.ankair.server.data.ServerDisconnectData;
 
 public class C1APlayDisconnectPacket implements Packet<IPlayListener> {
@@ -14,7 +13,7 @@ public class C1APlayDisconnectPacket implements Packet<IPlayListener> {
     }
 
     @Override
-    public void write(ByteBuf data) {
-        UtfString.write(data, new ServerDisconnectData(reason).toString());
+    public void write(PacketBuffer data) {
+        data.writeUtfString(new ServerDisconnectData(reason).toString());
     }
 }

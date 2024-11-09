@@ -1,12 +1,12 @@
 package xyz.ankairmc.ankair.server.packet.play;
 
-import io.netty.buffer.ByteBuf;
 import xyz.ankairmc.ankair.packet.Packet;
 import xyz.ankairmc.ankair.protocol.IPlayListener;
+import xyz.ankairmc.ankair.protocol.PacketBuffer;
 
 public class S0EPositionAndLookPacket implements Packet<IPlayListener> {
     @Override
-    public void read(ByteBuf data) {
+    public void read(PacketBuffer data) {
         Packet.super.read(data);
     }
 

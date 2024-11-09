@@ -1,16 +1,15 @@
 package xyz.ankairmc.ankair.server.packet.play;
 
-import io.netty.buffer.ByteBuf;
 import xyz.ankairmc.ankair.packet.Packet;
 import xyz.ankairmc.ankair.protocol.IPlayListener;
-import xyz.ankairmc.ankair.protocol.types.UtfString;
+import xyz.ankairmc.ankair.protocol.PacketBuffer;
 
 public class S02PlayChatMessagePacket implements Packet<IPlayListener> {
     public String message;
 
     @Override
-    public void read(ByteBuf data) {
-        this.message = UtfString.read(data, 256);
+    public void read(PacketBuffer data) {
+        this.message = data.readUtfString(256);
     }
 
     @Override

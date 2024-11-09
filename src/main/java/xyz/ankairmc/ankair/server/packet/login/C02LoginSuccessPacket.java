@@ -3,7 +3,7 @@ package xyz.ankairmc.ankair.server.packet.login;
 import io.netty.buffer.ByteBuf;
 import xyz.ankairmc.ankair.packet.Packet;
 import xyz.ankairmc.ankair.protocol.IStatusListener;
-import xyz.ankairmc.ankair.protocol.types.UtfString;
+import xyz.ankairmc.ankair.protocol.PacketBuffer;
 
 import java.util.UUID;
 
@@ -17,8 +17,8 @@ public class C02LoginSuccessPacket implements Packet<IStatusListener> {
     }
 
     @Override
-    public void write(ByteBuf data) {
-        UtfString.write(data, uuid.toString(), 36);
-        UtfString.write(data, username, 16);
+    public void write(PacketBuffer data) {
+        data.writeUtfString(uuid.toString(), 36);
+        data.writeUtfString(username, 16);
     }
 }

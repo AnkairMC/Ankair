@@ -4,7 +4,7 @@ import io.netty.buffer.ByteBuf;
 import xyz.ankairmc.ankair.core.Position;
 import xyz.ankairmc.ankair.packet.Packet;
 import xyz.ankairmc.ankair.protocol.IPlayListener;
-import xyz.ankairmc.ankair.protocol.types.Positions;
+import xyz.ankairmc.ankair.protocol.PacketBuffer;
 
 public class C46PlaySpawnPositionPacket implements Packet<IPlayListener> {
     private final int x;
@@ -18,7 +18,7 @@ public class C46PlaySpawnPositionPacket implements Packet<IPlayListener> {
     }
 
     @Override
-    public void write(ByteBuf data) {
-        Positions.write(data, new Position(x, y, z));
+    public void write(PacketBuffer data) {
+        data.writePosition(new Position(x, y, z));
     }
 }
