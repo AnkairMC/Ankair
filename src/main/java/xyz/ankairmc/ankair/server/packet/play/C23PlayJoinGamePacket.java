@@ -1,11 +1,10 @@
 package xyz.ankairmc.ankair.server.packet.play;
 
-import io.netty.buffer.ByteBuf;
-import xyz.ankairmc.ankair.packet.Packet;
+import xyz.ankairmc.ankair.network.packet.Packet;
 import xyz.ankairmc.ankair.player.Difficulty;
 import xyz.ankairmc.ankair.player.GameMode;
-import xyz.ankairmc.ankair.protocol.IPlayListener;
-import xyz.ankairmc.ankair.protocol.PacketBuffer;
+import xyz.ankairmc.ankair.network.listener.IPlayListener;
+import xyz.ankairmc.ankair.network.PacketBuffer;
 
 public class C23PlayJoinGamePacket implements Packet<IPlayListener> {
     private final int entityId;

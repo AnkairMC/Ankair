@@ -1,9 +1,8 @@
 package xyz.ankairmc.ankair.server.packet.status;
 
-import io.netty.buffer.ByteBuf;
-import xyz.ankairmc.ankair.packet.Packet;
-import xyz.ankairmc.ankair.protocol.IStatusListener;
-import xyz.ankairmc.ankair.protocol.PacketBuffer;
+import xyz.ankairmc.ankair.network.packet.Packet;
+import xyz.ankairmc.ankair.network.listener.IStatusListener;
+import xyz.ankairmc.ankair.network.PacketBuffer;
 
 public class C01StatusPongPacket implements Packet<IStatusListener> {
     private final long payload;

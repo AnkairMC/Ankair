@@ -1,12 +1,12 @@
-package xyz.ankairmc.ankair.protocol;
+package xyz.ankairmc.ankair.network;
 
-import xyz.ankairmc.ankair.packet.Packet;
-import xyz.ankairmc.ankair.packet.PacketDirection;
-import xyz.ankairmc.ankair.packet.PacketListener;
-import xyz.ankairmc.ankair.protocol.listener.HandshakeListener;
-import xyz.ankairmc.ankair.protocol.listener.LoginListener;
-import xyz.ankairmc.ankair.protocol.listener.PlayListener;
-import xyz.ankairmc.ankair.protocol.listener.StatusListener;
+import xyz.ankairmc.ankair.network.packet.Packet;
+import xyz.ankairmc.ankair.network.packet.PacketDirection;
+import xyz.ankairmc.ankair.network.packet.PacketListener;
+import xyz.ankairmc.ankair.network.listener.impl.HandshakeListener;
+import xyz.ankairmc.ankair.network.listener.impl.LoginListener;
+import xyz.ankairmc.ankair.network.listener.impl.PlayListener;
+import xyz.ankairmc.ankair.network.listener.impl.StatusListener;
 import xyz.ankairmc.ankair.server.packet.handshake.S00HandshakePacket;
 import xyz.ankairmc.ankair.server.packet.login.C00LoginDisconnectPacket;
 import xyz.ankairmc.ankair.server.packet.login.C02LoginSuccessPacket;

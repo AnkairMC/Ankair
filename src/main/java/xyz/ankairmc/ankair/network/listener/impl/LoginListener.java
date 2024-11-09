@@ -1,21 +1,18 @@
-package xyz.ankairmc.ankair.protocol.listener;
+package xyz.ankairmc.ankair.network.listener.impl;
 
-import io.netty.buffer.Unpooled;
 import xyz.ankairmc.ankair.MinecraftServer;
+import xyz.ankairmc.ankair.network.listener.ILoginListener;
 import xyz.ankairmc.ankair.player.Difficulty;
 import xyz.ankairmc.ankair.player.GameMode;
 import xyz.ankairmc.ankair.player.Player;
-import xyz.ankairmc.ankair.protocol.ConnectionStatus;
-import xyz.ankairmc.ankair.protocol.ILoginListener;
+import xyz.ankairmc.ankair.network.ConnectionStatus;
 import xyz.ankairmc.ankair.server.MinecraftCustom;
 import xyz.ankairmc.ankair.server.MinecraftStatus;
 import xyz.ankairmc.ankair.server.packet.login.C02LoginSuccessPacket;
 import xyz.ankairmc.ankair.server.packet.login.S00LoginStartPacket;
 import xyz.ankairmc.ankair.server.packet.play.*;
-import xyz.ankairmc.ankair.server.packet.play.chat.ChatType;
 import xyz.ankairmc.ankair.server.packet.play.chat.IChatComponent;
 
-import java.awt.*;
 import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;

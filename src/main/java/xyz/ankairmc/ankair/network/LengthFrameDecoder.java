@@ -1,4 +1,4 @@
-package xyz.ankairmc.ankair.protocol;
+package xyz.ankairmc.ankair.network;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

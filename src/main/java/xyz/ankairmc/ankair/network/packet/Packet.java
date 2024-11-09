@@ -1,7 +1,6 @@
-package xyz.ankairmc.ankair.packet;
+package xyz.ankairmc.ankair.network.packet;
 
-import io.netty.buffer.ByteBuf;
-import xyz.ankairmc.ankair.protocol.PacketBuffer;
+import xyz.ankairmc.ankair.network.PacketBuffer;
 
 public interface Packet<T extends PacketListener> {
     default void read(PacketBuffer data) {}

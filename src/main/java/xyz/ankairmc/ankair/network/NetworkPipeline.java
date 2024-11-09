@@ -4,7 +4,6 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import xyz.ankairmc.ankair.player.Player;
-import xyz.ankairmc.ankair.protocol.*;
 
 public class NetworkPipeline extends ChannelInitializer<Channel> {
     private static NetworkPipeline instance;

@@ -1,9 +1,8 @@
 package xyz.ankairmc.ankair.server.packet.status;
 
-import io.netty.buffer.ByteBuf;
-import xyz.ankairmc.ankair.packet.Packet;
-import xyz.ankairmc.ankair.protocol.IStatusListener;
-import xyz.ankairmc.ankair.protocol.PacketBuffer;
+import xyz.ankairmc.ankair.network.packet.Packet;
+import xyz.ankairmc.ankair.network.listener.IStatusListener;
+import xyz.ankairmc.ankair.network.PacketBuffer;
 import xyz.ankairmc.ankair.server.data.ServerStatusData;
 
 public class C00StatusResponsePacket implements Packet<IStatusListener> {

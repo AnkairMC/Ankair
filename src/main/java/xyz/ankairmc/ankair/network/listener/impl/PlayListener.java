@@ -1,8 +1,8 @@
-package xyz.ankairmc.ankair.protocol.listener;
+package xyz.ankairmc.ankair.network.listener.impl;
 
 import xyz.ankairmc.ankair.MinecraftServer;
+import xyz.ankairmc.ankair.network.listener.IPlayListener;
 import xyz.ankairmc.ankair.player.Player;
-import xyz.ankairmc.ankair.protocol.IPlayListener;
 import xyz.ankairmc.ankair.server.packet.play.C0FPlayChatMessagePacket;
 import xyz.ankairmc.ankair.server.packet.play.S02PlayChatMessagePacket;
 import xyz.ankairmc.ankair.server.packet.play.S0BPlayKeepAlive;

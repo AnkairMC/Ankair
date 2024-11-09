@@ -2,8 +2,8 @@ package xyz.ankairmc.ankair.network;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import xyz.ankairmc.ankair.packet.Packet;
-import xyz.ankairmc.ankair.packet.PacketListener;
+import xyz.ankairmc.ankair.network.packet.Packet;
+import xyz.ankairmc.ankair.network.packet.PacketListener;
 import xyz.ankairmc.ankair.player.Player;
 
 public class NetworkHandler extends SimpleChannelInboundHandler<Packet<? extends PacketListener>> {

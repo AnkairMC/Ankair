@@ -1,6 +1,6 @@
-package xyz.ankairmc.ankair.protocol;
+package xyz.ankairmc.ankair.network.listener;
 
-import xyz.ankairmc.ankair.packet.PacketListener;
+import xyz.ankairmc.ankair.network.packet.PacketListener;
 import xyz.ankairmc.ankair.server.packet.handshake.S00HandshakePacket;
 
 public interface IHandshakeListener extends PacketListener {

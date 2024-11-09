@@ -1,8 +1,8 @@
-package xyz.ankairmc.ankair.protocol.listener;
+package xyz.ankairmc.ankair.network.listener.impl;
 
 import xyz.ankairmc.ankair.MinecraftServer;
+import xyz.ankairmc.ankair.network.listener.IStatusListener;
 import xyz.ankairmc.ankair.player.Player;
-import xyz.ankairmc.ankair.protocol.IStatusListener;
 import xyz.ankairmc.ankair.server.MinecraftStatus;
 import xyz.ankairmc.ankair.server.data.ServerStatusData;
 import xyz.ankairmc.ankair.server.packet.status.S01StatusPingPacket;

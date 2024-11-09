@@ -1,4 +1,4 @@
-package xyz.ankairmc.ankair.packet;
+package xyz.ankairmc.ankair.network.packet;
 
 public enum PacketDirection {
     SERVER_BOUND,

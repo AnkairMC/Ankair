@@ -1,12 +1,11 @@
-package xyz.ankairmc.ankair.protocol;
+package xyz.ankairmc.ankair.network;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageDecoder;
-import xyz.ankairmc.ankair.network.NetworkManager;
-import xyz.ankairmc.ankair.packet.Packet;
-import xyz.ankairmc.ankair.packet.PacketDirection;
-import xyz.ankairmc.ankair.packet.PacketListener;
+import xyz.ankairmc.ankair.network.packet.Packet;
+import xyz.ankairmc.ankair.network.packet.PacketDirection;
+import xyz.ankairmc.ankair.network.packet.PacketListener;
 import xyz.ankairmc.ankair.player.Player;
 
 import java.util.List;

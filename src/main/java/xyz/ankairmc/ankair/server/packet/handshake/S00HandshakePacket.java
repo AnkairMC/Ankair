@@ -1,9 +1,9 @@
 package xyz.ankairmc.ankair.server.packet.handshake;
 
-import xyz.ankairmc.ankair.packet.Packet;
-import xyz.ankairmc.ankair.protocol.ConnectionStatus;
-import xyz.ankairmc.ankair.protocol.IHandshakeListener;
-import xyz.ankairmc.ankair.protocol.PacketBuffer;
+import xyz.ankairmc.ankair.network.packet.Packet;
+import xyz.ankairmc.ankair.network.ConnectionStatus;
+import xyz.ankairmc.ankair.network.listener.IHandshakeListener;
+import xyz.ankairmc.ankair.network.PacketBuffer;
 
 public class S00HandshakePacket implements Packet<IHandshakeListener> {
     public int protocol;

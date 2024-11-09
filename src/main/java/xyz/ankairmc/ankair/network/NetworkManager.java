@@ -51,8 +51,8 @@ public class NetworkManager {
     public void stopServer() {
         if (!inited) return;
 
-        this.workerEventLoop.shutdownGracefully();
-        this.bossEventLoop.shutdownGracefully();
+        workerEventLoop.shutdownGracefully();
+        bossEventLoop.shutdownGracefully();
 
         this.future.channel().closeFuture().syncUninterruptibly();
     }

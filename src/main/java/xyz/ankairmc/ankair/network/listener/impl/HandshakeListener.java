@@ -1,7 +1,7 @@
-package xyz.ankairmc.ankair.protocol.listener;
+package xyz.ankairmc.ankair.network.listener.impl;
 
+import xyz.ankairmc.ankair.network.listener.IHandshakeListener;
 import xyz.ankairmc.ankair.player.Player;
-import xyz.ankairmc.ankair.protocol.IHandshakeListener;
 import xyz.ankairmc.ankair.server.packet.handshake.S00HandshakePacket;
 
 public class HandshakeListener implements IHandshakeListener {
