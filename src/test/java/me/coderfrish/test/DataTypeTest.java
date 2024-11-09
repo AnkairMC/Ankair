@@ -1,11 +1,42 @@
 package me.coderfrish.test;
 
 import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
 import org.junit.jupiter.api.Test;
+import xyz.ankairmc.ankair.network.PacketBuffer;
+
+import java.util.*;
+import java.util.function.BiConsumer;
 
 public class DataTypeTest {
     @Test
     public void test() {
+//        ByteBuf buffer = Unpooled.buffer();
+//        List<Integer> list = Arrays.asList(1, 20, 30);
+//
+//        writeCollection(buffer, list, DataTypeTest::writeVarInt);
+//        System.out.println(readCollection(buffer, DataTypeTest::readVarInt).toString());
+    }
+
+    public <C> ByteBuf writeCollection(ByteBuf buf, Collection<C> collection, BiConsumer<ByteBuf, C> runnable) {
+        writeVarInt(buf, collection.size());
+
+        for (C c : collection) {
+            runnable.accept(buf, c);
+        }
+
+        return buf;
+    }
+
+    public <C> Collection<C> readCollection(ByteBuf buf, java.util.function.Function<ByteBuf, C> runnable) {
+        Collection<C> collection = new ArrayList<>(Collections.emptySet());
+        int length = readVarInt(buf);
+
+        for (int i = 0; i < length; i++) {
+            collection.add(runnable.apply(buf));
+        }
+
+        return collection;
     }
 
     public record Position(int x, int y, int z) {
