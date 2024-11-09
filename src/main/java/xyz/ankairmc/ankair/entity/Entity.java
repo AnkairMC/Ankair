@@ -1,8 +1,5 @@
 package xyz.ankairmc.ankair.entity;
 
-import xyz.ankairmc.ankair.util.MathUtil;
-
-import java.util.Random;
 import java.util.UUID;
 
 public class Entity {
@@ -12,7 +9,7 @@ public class Entity {
 
     public Entity() {
         this.entityId = nextEntity++;
-        this.entityUuid = MathUtil.randomUUID(new Random());
+        this.entityUuid = UUID.randomUUID();
     }
 
     public int getEntityId() {
