@@ -17,7 +17,7 @@ public class C0EPlayChatMessagePacket implements Packet<IPlayListener> {
 
     @Override
     public void write(PacketBuffer data) {
-        data.writeUtfString(component.toString());
+        data.writeChatComponent(component);
         data.writeByte(type.id);
     }
 }

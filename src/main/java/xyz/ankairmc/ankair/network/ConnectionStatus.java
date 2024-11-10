@@ -64,6 +64,8 @@ public enum ConnectionStatus {
             createPacket(0x11, PacketDirection.SERVER_BOUND, S11PositionAndLookPacket.class);
             createPacket(0x10, PacketDirection.SERVER_BOUND, S10PlayPlayerPositionPacket.class);
             createPacket(0x1A, PacketDirection.SERVER_BOUND, S1ASteerVehiclePacket.class);
+
+            createPacket(0x4B, PacketDirection.CLIENT_BOUND, C4BPlayTitlePacket.class);
         }
     };
 

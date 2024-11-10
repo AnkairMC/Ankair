@@ -3,7 +3,7 @@ package xyz.ankairmc.ankair.player;
 import io.netty.channel.Channel;
 import xyz.ankairmc.ankair.MinecraftServer;
 import xyz.ankairmc.ankair.core.GameProfile;
-import xyz.ankairmc.ankair.entity.Entity;
+import xyz.ankairmc.ankair.entity.LivingEntity;
 import xyz.ankairmc.ankair.network.packet.Packet;
 import xyz.ankairmc.ankair.network.packet.PacketListener;
 import xyz.ankairmc.ankair.network.ConnectionStatus;
@@ -13,7 +13,7 @@ import xyz.ankairmc.ankair.server.packet.play.clientbound.C1BPlayDisconnectPacke
 import xyz.ankairmc.ankair.server.packet.play.chat.ChatType;
 import xyz.ankairmc.ankair.server.packet.play.chat.IChatComponent;
 
-public class Player extends Entity {
+public class Player extends LivingEntity {
     private ConnectionStatus status = ConnectionStatus.HANDSHAKE;
     private final GameProfile gameProfile = new GameProfile();
     private GameMode gameMode = GameMode.SURVIVAL;
