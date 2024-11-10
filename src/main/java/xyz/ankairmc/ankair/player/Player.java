@@ -7,9 +7,9 @@ import xyz.ankairmc.ankair.entity.Entity;
 import xyz.ankairmc.ankair.network.packet.Packet;
 import xyz.ankairmc.ankair.network.packet.PacketListener;
 import xyz.ankairmc.ankair.network.ConnectionStatus;
-import xyz.ankairmc.ankair.server.packet.login.C00LoginDisconnectPacket;
-import xyz.ankairmc.ankair.server.packet.play.C0EPlayChatMessagePacket;
-import xyz.ankairmc.ankair.server.packet.play.C1BPlayDisconnectPacket;
+import xyz.ankairmc.ankair.server.packet.login.clientbound.C00LoginDisconnectPacket;
+import xyz.ankairmc.ankair.server.packet.play.clientbound.C0EPlayChatMessagePacket;
+import xyz.ankairmc.ankair.server.packet.play.clientbound.C1BPlayDisconnectPacket;
 import xyz.ankairmc.ankair.server.packet.play.chat.ChatType;
 import xyz.ankairmc.ankair.server.packet.play.chat.IChatComponent;
 

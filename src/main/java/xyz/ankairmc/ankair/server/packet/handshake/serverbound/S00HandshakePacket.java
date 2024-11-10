@@ -1,4 +1,4 @@
-package xyz.ankairmc.ankair.server.packet.handshake;
+package xyz.ankairmc.ankair.server.packet.handshake.serverbound;
 
 import xyz.ankairmc.ankair.network.packet.Packet;
 import xyz.ankairmc.ankair.network.ConnectionStatus;

@@ -1,4 +1,4 @@
-package xyz.ankairmc.ankair.server.packet.play;
+package xyz.ankairmc.ankair.server.packet.play.clientbound;
 
 import xyz.ankairmc.ankair.core.Identifier;
 import xyz.ankairmc.ankair.network.packet.Packet;

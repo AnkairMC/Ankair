@@ -1,4 +1,4 @@
-package xyz.ankairmc.ankair.server.packet.login;
+package xyz.ankairmc.ankair.server.packet.login.serverbound;
 
 import xyz.ankairmc.ankair.network.packet.Packet;
 import xyz.ankairmc.ankair.network.listener.ILoginListener;

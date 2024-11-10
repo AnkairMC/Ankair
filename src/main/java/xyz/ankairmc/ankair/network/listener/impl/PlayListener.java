@@ -3,10 +3,10 @@ package xyz.ankairmc.ankair.network.listener.impl;
 import xyz.ankairmc.ankair.MinecraftServer;
 import xyz.ankairmc.ankair.network.listener.IPlayListener;
 import xyz.ankairmc.ankair.player.Player;
-import xyz.ankairmc.ankair.server.packet.play.C0EPlayChatMessagePacket;
-import xyz.ankairmc.ankair.server.packet.play.S02PlayChatMessagePacket;
-import xyz.ankairmc.ankair.server.packet.play.S0EPlayKeepAlivePacket;
-import xyz.ankairmc.ankair.server.packet.play.S11PositionAndLookPacket;
+import xyz.ankairmc.ankair.server.packet.play.clientbound.C0EPlayChatMessagePacket;
+import xyz.ankairmc.ankair.server.packet.play.serverbound.S02PlayChatMessagePacket;
+import xyz.ankairmc.ankair.server.packet.play.serverbound.S0EPlayKeepAlivePacket;
+import xyz.ankairmc.ankair.server.packet.play.serverbound.S11PositionAndLookPacket;
 import xyz.ankairmc.ankair.server.packet.play.chat.ChatType;
 import xyz.ankairmc.ankair.server.packet.play.chat.IChatComponent;
 

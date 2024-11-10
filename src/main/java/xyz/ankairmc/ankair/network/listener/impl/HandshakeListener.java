@@ -2,7 +2,7 @@ package xyz.ankairmc.ankair.network.listener.impl;
 
 import xyz.ankairmc.ankair.network.listener.IHandshakeListener;
 import xyz.ankairmc.ankair.player.Player;
-import xyz.ankairmc.ankair.server.packet.handshake.S00HandshakePacket;
+import xyz.ankairmc.ankair.server.packet.handshake.serverbound.S00HandshakePacket;
 
 public class HandshakeListener implements IHandshakeListener {
     private final Player session;

@@ -5,10 +5,10 @@ import xyz.ankairmc.ankair.network.listener.IStatusListener;
 import xyz.ankairmc.ankair.player.Player;
 import xyz.ankairmc.ankair.server.MinecraftStatus;
 import xyz.ankairmc.ankair.server.data.ServerStatusData;
-import xyz.ankairmc.ankair.server.packet.status.S01StatusPingPacket;
-import xyz.ankairmc.ankair.server.packet.status.S00StatusRequestPacket;
-import xyz.ankairmc.ankair.server.packet.status.C00StatusResponsePacket;
-import xyz.ankairmc.ankair.server.packet.status.C01StatusPongPacket;
+import xyz.ankairmc.ankair.server.packet.status.serverbound.S01StatusPingPacket;
+import xyz.ankairmc.ankair.server.packet.status.serverbound.S00StatusRequestPacket;
+import xyz.ankairmc.ankair.server.packet.status.clientbound.C00StatusResponsePacket;
+import xyz.ankairmc.ankair.server.packet.status.clientbound.C01StatusPongPacket;
 
 public class StatusListener implements IStatusListener {
     private final Player session;
