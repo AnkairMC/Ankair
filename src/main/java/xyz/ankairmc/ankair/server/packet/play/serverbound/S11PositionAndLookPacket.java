@@ -12,6 +12,6 @@ public class S11PositionAndLookPacket implements Packet<IPlayListener> {
 
     @Override
     public void listener(IPlayListener listener) {
-        listener.handlePlayerPositionAndLookPacket(this);
+        listener.handlePlayerPositionAndLook(this);
     }
 }

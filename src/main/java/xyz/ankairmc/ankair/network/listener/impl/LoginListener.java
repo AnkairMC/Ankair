@@ -7,7 +7,6 @@ import xyz.ankairmc.ankair.network.PacketBuffer;
 import xyz.ankairmc.ankair.network.listener.ILoginListener;
 import xyz.ankairmc.ankair.server.packet.play.clientbound.*;
 import xyz.ankairmc.ankair.world.Difficulty;
-import xyz.ankairmc.ankair.player.GameMode;
 import xyz.ankairmc.ankair.player.Player;
 import xyz.ankairmc.ankair.network.ConnectionStatus;
 import xyz.ankairmc.ankair.server.MinecraftCustom;
@@ -57,7 +56,7 @@ public class LoginListener implements ILoginListener {
         session.setStatus(ConnectionStatus.PLAY);
         session.sendPacket(new C25PlayJoinGamePacket(
                 session.getEntityId(),
-                GameMode.CREATIVE,
+                session.getGameMode(),
                 false,
                 0,
                 Difficulty.PEACEFUL,
@@ -67,7 +66,7 @@ public class LoginListener implements ILoginListener {
         ));
         session.sendPacket(new C49PlaySpawnPositionPacket(0, 0, 0));
         session.sendPacket(new C32PlayPositionAndLookPacket(0, 0, 0, 0, 120, 0));
-        session.sendPacket(new C19PluginMessagePacket(
+        session.sendPacket(new C19PlayPluginMessagePacket(
                 new Identifier("brand"),
                 new PacketBuffer(
                         Unpooled.buffer()
@@ -75,7 +74,7 @@ public class LoginListener implements ILoginListener {
         ));
 
         session.sendPacket(new C4EPlayTabListHeaderAndFooterPacket(
-                IChatComponent.build().text("Ankair 1.12.2"),
+                IChatComponent.build().text("Ankair 1.13.2"),
                 IChatComponent.build().text("Welcome ")
                         .extra(IChatComponent.build().text(session.getGameProfile().getUsername()).color("red"))
                         .extra(IChatComponent.build().text("!!"))

@@ -4,9 +4,7 @@ import xyz.ankairmc.ankair.MinecraftServer;
 import xyz.ankairmc.ankair.network.listener.IPlayListener;
 import xyz.ankairmc.ankair.player.Player;
 import xyz.ankairmc.ankair.server.packet.play.clientbound.C0EPlayChatMessagePacket;
-import xyz.ankairmc.ankair.server.packet.play.serverbound.S02PlayChatMessagePacket;
-import xyz.ankairmc.ankair.server.packet.play.serverbound.S0EPlayKeepAlivePacket;
-import xyz.ankairmc.ankair.server.packet.play.serverbound.S11PositionAndLookPacket;
+import xyz.ankairmc.ankair.server.packet.play.serverbound.*;
 import xyz.ankairmc.ankair.server.packet.play.chat.ChatType;
 import xyz.ankairmc.ankair.server.packet.play.chat.IChatComponent;
 
@@ -31,6 +29,14 @@ public class PlayListener implements IPlayListener {
     }
 
     @Override
-    public void handlePlayerPositionAndLookPacket(S11PositionAndLookPacket packet) {
+    public void handlePlayerPositionAndLook(S11PositionAndLookPacket packet) {
+    }
+
+    @Override
+    public void handlePlayerPosition(S10PlayPlayerPositionPacket packet) {
+    }
+
+    @Override
+    public void handlePlayerSteerVehicle(S1ASteerVehiclePacket packet) {
     }
 }

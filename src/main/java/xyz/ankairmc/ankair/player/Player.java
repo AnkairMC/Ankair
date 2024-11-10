@@ -15,9 +15,10 @@ import xyz.ankairmc.ankair.server.packet.play.chat.IChatComponent;
 
 public class Player extends Entity {
     private ConnectionStatus status = ConnectionStatus.HANDSHAKE;
-    private int protocol = -1;
-    private final Channel channel;
     private final GameProfile gameProfile = new GameProfile();
+    private GameMode gameMode = GameMode.SURVIVAL;
+    private final Channel channel;
+    private int protocol = -1;
 
     public Player(Channel channel) {
         this.channel = channel;
@@ -64,6 +65,14 @@ public class Player extends Entity {
 
     public Channel getChannel() {
         return channel;
+    }
+
+    public void setGameMode(GameMode gameMode) {
+        this.gameMode = gameMode;
+    }
+
+    public GameMode getGameMode() {
+        return gameMode;
     }
 
     public void sendChatMessage(IChatComponent component) {

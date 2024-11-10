@@ -12,9 +12,7 @@ import xyz.ankairmc.ankair.server.packet.login.clientbound.C00LoginDisconnectPac
 import xyz.ankairmc.ankair.server.packet.login.clientbound.C02LoginSuccessPacket;
 import xyz.ankairmc.ankair.server.packet.login.serverbound.S00LoginStartPacket;
 import xyz.ankairmc.ankair.server.packet.play.clientbound.*;
-import xyz.ankairmc.ankair.server.packet.play.serverbound.S02PlayChatMessagePacket;
-import xyz.ankairmc.ankair.server.packet.play.serverbound.S0EPlayKeepAlivePacket;
-import xyz.ankairmc.ankair.server.packet.play.serverbound.S11PositionAndLookPacket;
+import xyz.ankairmc.ankair.server.packet.play.serverbound.*;
 import xyz.ankairmc.ankair.server.packet.status.serverbound.S01StatusPingPacket;
 import xyz.ankairmc.ankair.server.packet.status.serverbound.S00StatusRequestPacket;
 import xyz.ankairmc.ankair.server.packet.status.clientbound.C00StatusResponsePacket;
@@ -61,9 +59,11 @@ public enum ConnectionStatus {
             createPacket(0x0E, PacketDirection.CLIENT_BOUND, C0EPlayChatMessagePacket.class);
 
             createPacket(0x4E, PacketDirection.CLIENT_BOUND, C4EPlayTabListHeaderAndFooterPacket.class);
-            createPacket(0x19, PacketDirection.CLIENT_BOUND, C19PluginMessagePacket.class);
+            createPacket(0x19, PacketDirection.CLIENT_BOUND, C19PlayPluginMessagePacket.class);
 
             createPacket(0x11, PacketDirection.SERVER_BOUND, S11PositionAndLookPacket.class);
+            createPacket(0x10, PacketDirection.SERVER_BOUND, S10PlayPlayerPositionPacket.class);
+            createPacket(0x1A, PacketDirection.SERVER_BOUND, S1ASteerVehiclePacket.class);
         }
     };
 

@@ -5,11 +5,11 @@ import xyz.ankairmc.ankair.network.packet.Packet;
 import xyz.ankairmc.ankair.network.listener.IPlayListener;
 import xyz.ankairmc.ankair.network.PacketBuffer;
 
-public class C19PluginMessagePacket implements Packet<IPlayListener> {
+public class C19PlayPluginMessagePacket implements Packet<IPlayListener> {
     private final Identifier channel;
     private final PacketBuffer data;
 
-    public C19PluginMessagePacket(Identifier channel, PacketBuffer data) {
+    public C19PlayPluginMessagePacket(Identifier channel, PacketBuffer data) {
         this.channel = channel;
         this.data = data;
     }

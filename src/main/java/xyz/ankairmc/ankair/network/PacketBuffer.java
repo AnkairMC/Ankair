@@ -19,6 +19,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.UUID;
 import java.util.function.BiConsumer;
 
 /**
@@ -1058,5 +1059,15 @@ public class PacketBuffer extends ByteBuf {
         this.writeUtfString(identifier.toString());
 
         return this;
+    }
+
+    public PacketBuffer writeUUID(UUID uuid) {
+        this.writeLong(uuid.getMostSignificantBits());
+        this.writeLong(uuid.getLeastSignificantBits());
+        return this;
+    }
+
+    public UUID readUUID() {
+        return new UUID(this.readLong(), this.readLong());
     }
 }
