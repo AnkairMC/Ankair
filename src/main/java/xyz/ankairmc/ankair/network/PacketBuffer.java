@@ -5,6 +5,7 @@ import io.netty.buffer.ByteBufAllocator;
 import io.netty.util.ByteProcessor;
 import xyz.ankairmc.ankair.core.Identifier;
 import xyz.ankairmc.ankair.core.Position;
+import xyz.ankairmc.ankair.server.packet.play.chat.IChatComponent;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -1069,5 +1070,10 @@ public class PacketBuffer extends ByteBuf {
 
     public UUID readUUID() {
         return new UUID(this.readLong(), this.readLong());
+    }
+
+    public PacketBuffer writeChatComponent(IChatComponent component) {
+        this.writeUtfString(component.toString());
+        return this;
     }
 }
