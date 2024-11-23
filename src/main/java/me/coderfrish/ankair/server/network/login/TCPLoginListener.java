@@ -1,6 +1,7 @@
 package me.coderfrish.ankair.server.network.login;
 
 import io.netty.buffer.Unpooled;
+import me.coderfrish.ankair.server.IServerDescription;
 import me.coderfrish.ankair.MinecraftServer;
 import me.coderfrish.ankair.core.BlockPosition;
 import me.coderfrish.ankair.core.GameProfile;
@@ -9,10 +10,8 @@ import me.coderfrish.ankair.core.chat.IChatComponent;
 import me.coderfrish.ankair.network.ClientConnection;
 import me.coderfrish.ankair.network.ConnectionState;
 import me.coderfrish.ankair.network.PacketBuffer;
-import me.coderfrish.ankair.player.GameMode;
 import me.coderfrish.ankair.player.Location;
 import me.coderfrish.ankair.player.Player;
-import me.coderfrish.ankair.server.IServerDescription;
 import me.coderfrish.ankair.server.network.game.*;
 import me.coderfrish.ankair.util.ProfileUtil;
 
