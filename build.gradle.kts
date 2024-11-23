@@ -1,10 +1,9 @@
 plugins {
     id("java")
-    id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
 group = "me.ankairmc.ankair"
-version = "1.13.2-R0.1-SNAPSHOT"
+version = "1.14.4-R0.1-SNAPSHOT"
 
 repositories {
     maven("https://maven.aliyun.com/nexus/content/groups/public/")
@@ -14,7 +13,7 @@ repositories {
 
 dependencies {
     /* network */
-    implementation("io.netty:netty-all:4.1.114.Final")
+    implementation("io.netty:netty-all:4.1.115.Final")
 
     /* tools */
     implementation("com.google.guava:guava:33.3.1-jre")
@@ -36,17 +35,11 @@ tasks.clean {
     delete(File(rootDir, "out"))
 }
 
-tasks.shadowJar {
-    manifest {
-        attributes["Main-Class"] = "xyz.ankairmc.ankair.MinecraftServer"
-        attributes["Multi-Release"] = true
-    }
-}
-
-tasks.build {
-    dependsOn(tasks.shadowJar)
-}
-
 tasks.withType(JavaCompile::class.java) {
     options.encoding = "UTF-8"
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_22
+    targetCompatibility = JavaVersion.VERSION_22
 }
