@@ -1,9 +1,9 @@
 package me.coderfrish.ankair.server.network.status;
 
 import io.netty.channel.ChannelFutureListener;
-import me.coderfrish.ankair.server.IServerDescription;
 import me.coderfrish.ankair.MinecraftServer;
 import me.coderfrish.ankair.network.ClientConnection;
+import me.coderfrish.ankair.server.IServerDescription;
 import me.coderfrish.ankair.server.network.status.data.ServerStatusResponse;
 
 public class TCPStatusListener implements ITCPStatusListener {
