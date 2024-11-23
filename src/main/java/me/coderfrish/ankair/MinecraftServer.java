@@ -1,12 +1,14 @@
 package me.coderfrish.ankair;
 
 import me.coderfrish.ankair.network.ServerConnection;
+import me.coderfrish.ankair.player.PlayerList;
 import me.coderfrish.ankair.server.IServerDescription;
 
 import java.net.InetSocketAddress;
 
 public abstract class MinecraftServer implements IServerDescription {
     public static final String MINECRAFT_VERSION = "1.14.4";
+    private final PlayerList playerList;
     protected boolean initialized = false;
     protected boolean started = false;
     protected ServerConnection serverConnection;
@@ -15,6 +17,7 @@ public abstract class MinecraftServer implements IServerDescription {
 
     public MinecraftServer() {
         this.address = new InetSocketAddress(25565);
+        this.playerList = new PlayerList();
 
         instance = this;
     }
@@ -45,7 +48,7 @@ public abstract class MinecraftServer implements IServerDescription {
 
     @Override
     public int getPlayersOnline() {
-        return 0;
+        return playerList.online();
     }
 
     @Override
@@ -70,6 +73,10 @@ public abstract class MinecraftServer implements IServerDescription {
 
     public InetSocketAddress getAddress() {
         return address;
+    }
+
+    public PlayerList getPlayerList() {
+        return playerList;
     }
 
     public static void main(String[] args) {

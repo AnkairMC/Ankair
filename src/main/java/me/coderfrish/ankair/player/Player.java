@@ -1,9 +1,11 @@
 package me.coderfrish.ankair.player;
 
+import me.coderfrish.ankair.core.GameProfile;
 import me.coderfrish.ankair.entity.Entity;
 import me.coderfrish.ankair.world.World;
 
 public class Player extends Entity {
+    private final GameProfile profile;
     private World world;
     private Location location = new Location(0, 0, 0, 0, 0);
     private GameMode gameMode;
@@ -11,6 +13,7 @@ public class Player extends Entity {
     public Player(GameMode gameMode, World world) {
         this.gameMode = gameMode;
         this.world = world;
+        this.profile = new GameProfile();
     }
 
     public GameMode getGameMode() {
@@ -19,6 +22,10 @@ public class Player extends Entity {
 
     public Location getLocation() {
         return location;
+    }
+
+    public GameProfile getProfile() {
+        return profile;
     }
 
     public void setLocation(Location location) {

@@ -7,6 +7,6 @@ import me.coderfrish.ankair.server.network.status.data.ServerStatusResponse;
 public record ClientBoundStatusResponsePacket(ServerStatusResponse response) implements Packet<ITCPStatusListener> {
     @Override
     public void write(PacketBuffer data) {
-        data.writeString(response().toString());
+        data.writeString(response.toString());
     }
 }

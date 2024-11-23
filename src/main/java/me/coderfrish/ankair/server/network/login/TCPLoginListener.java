@@ -30,11 +30,11 @@ public class TCPLoginListener implements ITCPLoginListener {
     @Override
     @SuppressWarnings("all")
     public void handleLoginStart(ServerBoundLoginStartPacket packet) {
-        GameProfile profile = connection.getProfile();
+        GameProfile profile = connection.getPlayer().getProfile();
         profile.setUsername(packet.username);
         profile.setUuid(ProfileUtil.getUUIDByPlayerUsername(profile.getUsername()));
 
-        connection.sendPacket(new ClientBoundLoginSuccessPacket(connection.getProfile()));
+        connection.sendPacket(new ClientBoundLoginSuccessPacket(profile));
         connection.setState(ConnectionState.GAME);
         connection.setListener(new TCPGameListener(connection));
 
@@ -61,6 +61,7 @@ public class TCPLoginListener implements ITCPLoginListener {
                 new PacketBuffer(Unpooled.buffer()).writeString(description.getServerModName())
         ));
 
+        MinecraftServer.getServer().getPlayerList().addPlayer(connection.getPlayer());
         connection.getChannel().eventLoop().scheduleAtFixedRate(
                 () -> connection.sendPacket(
                         new ClientBoundGameKeepAlivePacket((int) (System.currentTimeMillis() / 10000))

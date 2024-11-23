@@ -5,6 +5,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
+import me.coderfrish.ankair.MinecraftServer;
 import me.coderfrish.ankair.core.GameProfile;
 import me.coderfrish.ankair.player.GameMode;
 import me.coderfrish.ankair.player.Player;
@@ -14,21 +15,25 @@ import me.coderfrish.ankair.world.World;
 public class ClientConnection extends SimpleChannelInboundHandler<Packet<? extends PacketListener>>{
     private ConnectionState state = ConnectionState.HANDSHAKING;
     private PacketListener listener;
-    private final Player player = new Player(
-            GameMode.SURVIVAL, new World()
-    );
-    private GameProfile profile;
+    private final Player player;
 
     private Channel channel;
 
     public ClientConnection() {
         this.listener = new TCPHandshakingListener(this);
+        this.player = new Player(
+                GameMode.SURVIVAL, new World()
+        );
     }
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) {
         this.channel = ctx.channel();
-        this.profile = new GameProfile();
+    }
+
+    @Override
+    public void channelInactive(ChannelHandlerContext ctx) {
+        MinecraftServer.getServer().getPlayerList().removePlayer(this.getPlayer());
     }
 
     @Override
@@ -50,10 +55,6 @@ public class ClientConnection extends SimpleChannelInboundHandler<Packet<? exten
 
     public void disconnect() {
         this.channel.disconnect();
-    }
-
-    public GameProfile getProfile() {
-        return profile;
     }
 
     public Channel getChannel() {

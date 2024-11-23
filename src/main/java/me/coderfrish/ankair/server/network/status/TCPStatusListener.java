@@ -28,7 +28,8 @@ public class TCPStatusListener implements ITCPStatusListener {
                         ),
                         new ServerStatusResponse.Description(
                                 description.getServerDescription()
-                        )
+                        ),
+                        MinecraftServer.getServer().getPlayerList()
                 )
         ));
     }

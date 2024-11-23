@@ -14,7 +14,7 @@ public class TCPHandshakingListener implements ITCPHandshakingListener {
     @Override
     public void handleHandshaking(ServerBoundHandshakingPacket packet) {
         connection.setState(packet.nextState);
-        connection.getProfile().setProtocol(packet.protocol);
+        connection.getPlayer().getProfile().setProtocol(packet.protocol);
 
         switch (connection.getState()) {
             case STATE -> connection.setListener(new TCPStatusListener(connection));
