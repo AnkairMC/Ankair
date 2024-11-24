@@ -42,6 +42,8 @@ public class TCPLoginListener implements ITCPLoginListener {
                 connection.getPlayer(),
                 description.getPlayersMax(),
                 32,
+                0,
+                false,
                 false
         ));
 

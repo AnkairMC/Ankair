@@ -7,7 +7,7 @@ import me.coderfrish.ankair.server.IServerDescription;
 import java.net.InetSocketAddress;
 
 public abstract class MinecraftServer implements IServerDescription {
-    public static final String MINECRAFT_VERSION = "1.14.4";
+    public static final String MINECRAFT_VERSION = "1.15.2";
     private final PlayerList playerList;
     protected boolean initialized = false;
     protected boolean started = false;
@@ -53,7 +53,7 @@ public abstract class MinecraftServer implements IServerDescription {
 
     @Override
     public int getServerProtocol() {
-        return 498;
+        return 578;
     }
 
     @Override

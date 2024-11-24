@@ -52,13 +52,13 @@ public enum ConnectionState {
     GAME {
         {
             createDirection(Direction.CLIENT_BOUND, (map) -> {
-                map.put(0x25, ClientBoundGameJoinGamePacket.class);
-                map.put(0x4D, ClientBoundGameSpawnPositionPacket.class);
-                map.put(0x1A, ClientBoundGameDisconnectPacket.class);
-                map.put(0x20, ClientBoundGameKeepAlivePacket.class);
+                map.put(0x26, ClientBoundGameJoinGamePacket.class);
+                map.put(0x4E, ClientBoundGameSpawnPositionPacket.class);
+                map.put(0x1B, ClientBoundGameDisconnectPacket.class);
+                map.put(0x21, ClientBoundGameKeepAlivePacket.class);
 
-                map.put(0x35, ClientBoundGamePositionAndLookPacket.class);
-                map.put(0x18, ClientBoundGamePluginMessagePacket.class);
+                map.put(0x36, ClientBoundGamePositionAndLookPacket.class);
+                map.put(0x19, ClientBoundGamePluginMessagePacket.class);
             });
 
             createDirection(Direction.SERVER_BOUND, (map) -> {
