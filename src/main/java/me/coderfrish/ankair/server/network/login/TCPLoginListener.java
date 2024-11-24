@@ -64,12 +64,7 @@ public class TCPLoginListener implements ITCPLoginListener {
                 new PacketBuffer(Unpooled.buffer()).writeString(description.getServerModName())
         ));
 
-        MinecraftServer.getServer().getPlayerList().addPlayer(connection.getPlayer());
-        connection.getChannel().eventLoop().scheduleAtFixedRate(
-                () -> connection.sendPacket(
-                        new ClientBoundGameKeepAlivePacket((int) (System.currentTimeMillis() / 10000))
-                ),
-                5, 10, TimeUnit.SECONDS);
+        MinecraftServer.getServer().getPlayerList().addPlayer(connection);
     }
 
     @Override

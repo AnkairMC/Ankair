@@ -5,6 +5,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
+import io.netty.util.concurrent.ScheduledFuture;
 import me.coderfrish.ankair.MinecraftServer;
 import me.coderfrish.ankair.core.GameProfile;
 import me.coderfrish.ankair.player.GameMode;
@@ -14,6 +15,7 @@ import me.coderfrish.ankair.world.World;
 
 public class ClientConnection extends SimpleChannelInboundHandler<Packet<? extends PacketListener>>{
     private ConnectionState state = ConnectionState.HANDSHAKING;
+    private ScheduledFuture<?> keepAliveScheduledFuture;
     private PacketListener listener;
     private final Player player;
 
@@ -32,8 +34,9 @@ public class ClientConnection extends SimpleChannelInboundHandler<Packet<? exten
     }
 
     @Override
-    public void channelInactive(ChannelHandlerContext ctx) {
-        MinecraftServer.getServer().getPlayerList().removePlayer(this.getPlayer());
+    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+        MinecraftServer.getServer().getPlayerList().removePlayer(this);
+        super.channelInactive(ctx);
     }
 
     @Override
@@ -65,6 +68,10 @@ public class ClientConnection extends SimpleChannelInboundHandler<Packet<? exten
         return player;
     }
 
+    public ScheduledFuture<?> getKeepAliveScheduledFuture() {
+        return keepAliveScheduledFuture;
+    }
+
     public ConnectionState getState() {
         return state;
     }
@@ -75,6 +82,10 @@ public class ClientConnection extends SimpleChannelInboundHandler<Packet<? exten
 
     public void setState(ConnectionState state) {
         this.state = state;
+    }
+
+    public void setKeepAliveScheduledFuture(ScheduledFuture<?> keepAliveScheduledFuture) {
+        this.keepAliveScheduledFuture = keepAliveScheduledFuture;
     }
 
     @SuppressWarnings("unchecked")

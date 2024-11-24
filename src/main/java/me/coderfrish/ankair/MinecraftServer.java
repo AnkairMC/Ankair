@@ -1,16 +1,19 @@
 package me.coderfrish.ankair;
 
+import io.netty.util.concurrent.ScheduledFuture;
 import me.coderfrish.ankair.network.ServerConnection;
 import me.coderfrish.ankair.server.player.PlayerList;
 import me.coderfrish.ankair.server.IServerDescription;
 
 import java.net.InetSocketAddress;
+import java.util.concurrent.TimeUnit;
 
-public abstract class MinecraftServer implements IServerDescription {
+public abstract class MinecraftServer implements IServerDescription, Runnable {
     public static final String MINECRAFT_VERSION = "1.15.2";
     private final PlayerList playerList;
     protected boolean initialized = false;
     protected boolean started = false;
+    protected ScheduledFuture<?> tickScheduledFuture;
     protected ServerConnection serverConnection;
     private final InetSocketAddress address;
     private static MinecraftServer instance;
@@ -31,6 +34,12 @@ public abstract class MinecraftServer implements IServerDescription {
     public void runServer() {
         if (!initialized) return;
         serverConnection.runManager();
+        tickScheduledFuture = serverConnection.getFuture().channel().eventLoop().scheduleAtFixedRate(
+                this,
+                0,
+                50,
+                TimeUnit.MILLISECONDS
+        );
 
         started = !started;
     }
@@ -38,6 +47,7 @@ public abstract class MinecraftServer implements IServerDescription {
     public void stopServer() {
         if (!started) return;
 
+        tickScheduledFuture.cancel(true);
         serverConnection.stopManager();
     }
 
@@ -77,6 +87,11 @@ public abstract class MinecraftServer implements IServerDescription {
 
     public PlayerList getPlayerList() {
         return playerList;
+    }
+
+    @Override
+    public void run() {
+        /* tick... */
     }
 
     public static void main(String[] args) {

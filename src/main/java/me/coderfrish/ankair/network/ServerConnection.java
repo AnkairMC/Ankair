@@ -60,6 +60,10 @@ public class ServerConnection implements IManager {
         return workerGroup;
     }
 
+    public ChannelFuture getFuture() {
+        return future;
+    }
+
     private final ChannelHandler channelHandler = new ChannelInitializer<Channel>() {
         @Override
         @SuppressWarnings("unused")
