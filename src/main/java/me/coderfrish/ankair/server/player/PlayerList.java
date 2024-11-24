@@ -1,4 +1,6 @@
-package me.coderfrish.ankair.player;
+package me.coderfrish.ankair.server.player;
+
+import me.coderfrish.ankair.player.Player;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -2,7 +2,7 @@ package me.coderfrish.ankair.server.network.status.data;
 
 import com.google.gson.*;
 import me.coderfrish.ankair.player.Player;
-import me.coderfrish.ankair.player.PlayerList;
+import me.coderfrish.ankair.server.player.PlayerList;
 
 @SuppressWarnings("all")
 public class ServerStatusResponse {

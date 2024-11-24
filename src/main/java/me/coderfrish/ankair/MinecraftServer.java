@@ -1,7 +1,7 @@
 package me.coderfrish.ankair;
 
 import me.coderfrish.ankair.network.ServerConnection;
-import me.coderfrish.ankair.player.PlayerList;
+import me.coderfrish.ankair.server.player.PlayerList;
 import me.coderfrish.ankair.server.IServerDescription;
 
 import java.net.InetSocketAddress;
