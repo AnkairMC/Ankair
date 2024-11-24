@@ -1,10 +1,13 @@
 package me.coderfrish.ankair.server.network.game;
 
+import me.coderfrish.ankair.core.Flags;
 import me.coderfrish.ankair.network.Packet;
 import me.coderfrish.ankair.network.PacketBuffer;
 import me.coderfrish.ankair.player.Location;
 
-public record ClientBoundGamePositionAndLookPacket(Location location, byte flags, int teleportId) implements Packet<ITCPGameListener> {
+import java.util.Set;
+
+public record ClientBoundGamePositionAndLookPacket(Location location, Set<Flags> set, int teleportId) implements Packet<ITCPGameListener> {
     @Override
     public void write(PacketBuffer data) {
         data.writeDouble(location.getX());
@@ -13,7 +16,7 @@ public record ClientBoundGamePositionAndLookPacket(Location location, byte flags
 
         data.writeFloat(location.getYaw());
         data.writeFloat(location.getPitch());
-        data.writeByte(flags);
+        data.writeByte(Flags.pack(set));
 
         data.writeVarInt(teleportId);
     }

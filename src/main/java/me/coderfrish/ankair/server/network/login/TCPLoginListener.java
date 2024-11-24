@@ -15,6 +15,7 @@ import me.coderfrish.ankair.player.Player;
 import me.coderfrish.ankair.server.network.game.*;
 import me.coderfrish.ankair.util.ProfileUtil;
 
+import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 
 public class TCPLoginListener implements ITCPLoginListener {
@@ -54,7 +55,7 @@ public class TCPLoginListener implements ITCPLoginListener {
         Location location = player.getLocation();
         connection.sendPacket(new ClientBoundGamePositionAndLookPacket(
                 location,
-                (byte) 0x01,
+                Collections.emptySet(),
                 connection.getTeleportId()
         ));
 
